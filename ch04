@@ -1,0 +1,23 @@
+#Version: 0.0.1
+FROM ubuntu:14.04
+MAINTAINER carterchou "tokei@mails.ccnu.edu.cn"
+LABEL author="zhoukangyi" age="25"
+RUN apt-get update && apt-get install -y nginx
+RUN echo 'Hi,I am your container' > /usr/share/nginx/html/index.html
+WORKDIR /opt/webapp/db
+RUN pwd
+RUN useradd carterchou
+RUN useradd zhoukangyi
+#USER carterchou
+#VOLUME ["/home/ts"]
+ADD 1.tar.gz /opt/webapp/db/add
+COPY 1.tar.gz /opt/webapp/db/copy
+ENV NAME carterchou
+ARG WOW=/home
+
+RUN  groups
+EXPOSE 80
+EXPOSE 90
+WORKDIR $WOW
+#ENTRYPOINT ["pwd"]
+#CMD  ["-h"]

@@ -1,0 +1,3 @@
+FROM carterchou/dockercommand:onbuild
+
+RUN echo done
